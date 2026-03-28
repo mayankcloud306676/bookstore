@@ -1,6 +1,6 @@
-ID,title,author_ID,createdAt,createdBy,modifiedAt,modifiedBy
-58418899-26f5-4289-b192-ee15daa3e95e,title-5841889,2623715c-93e9-4b58-a1a3-c153a245d253,2012-02-29T00:00:00.000Z,createdBy.3h7mp@example.com,2020-09-08T00:00:00.000Z,modifiedBy.3h7mp@example.net
-58418907-80ad-46c9-8b76-0d7f602771a8,title-5841890,2623715c-93e9-4b58-a1a3-c153a245d253,2010-10-30T00:00:00.000Z,createdBy.3h7mq@example.net,2013-12-29T00:00:00.000Z,modifiedBy.3h7mq@example.org
-58418914-cd55-46f2-8f8e-d5da2bb20e3c,title-5841891,2623715c-93e9-4b58-a1a3-c153a245d253,2007-11-18T00:00:00.000Z,createdBy.3h7mr@example.com,2008-01-04T00:00:00.000Z,modifiedBy.3h7mr@example.org
-58418929-43e0-4894-b849-f3979c85df45,title-5841892,2623715c-93e9-4b58-a1a3-c153a245d253,2004-11-23T00:00:00.000Z,createdBy.3h7ms@example.com,2019-08-23T00:00:00.000Z,modifiedBy.3h7ms@example.com
-5841893b-a013-4fc7-97d3-21e2f287ad59,title-5841893,2623715c-93e9-4b58-a1a3-c153a245d253,2000-07-31T00:00:00.000Z,createdBy.3h7mt@example.org,2018-12-04T00:00:00.000Z,modifiedBy.3h7mt@example.com
+ID,title,author_ID,genre,publishedAt,price,pages,createdAt,createdBy,modifiedAt,modifiedBy
+23746129-e9c6-4a59-80ed-045afd34e209,title-23746129,619169ce-0ec7-46e5-a80d-d68ad3f696ba,genre-23746129,2013-03-10,8298244.75,5,2013-08-12T00:00:00.000Z,createdBy.e4ymp@example.com,2020-07-14T00:00:00.000Z,modifiedBy.e4ymp@example.net
+23746130-c949-4a3a-863a-971e3bfbd3f6,title-23746130,619169ce-0ec7-46e5-a80d-d68ad3f696ba,genre-23746130,2006-12-19,7492951.97,59,2023-04-22T00:00:00.000Z,createdBy.e4ymq@example.org,2015-10-11T00:00:00.000Z,modifiedBy.e4ymq@example.com
+23746131-1c34-4082-928d-3dbd07629945,title-23746131,619169ce-0ec7-46e5-a80d-d68ad3f696ba,genre-23746131,2020-11-27,4585903.29,11,2008-05-22T00:00:00.000Z,createdBy.e4ymr@example.com,2014-07-02T00:00:00.000Z,modifiedBy.e4ymr@example.com
+23746132-e243-4f8d-b74a-4b9eba56c906,title-23746132,619169ce-0ec7-46e5-a80d-d68ad3f696ba,genre-23746132,2013-05-07,9682300.13,77,2022-12-15T00:00:00.000Z,createdBy.e4yms@example.org,2015-12-30T00:00:00.000Z,modifiedBy.e4yms@example.net
+23746133-625f-4d0a-bd69-3a0531dbe3a9,title-23746133,619169ce-0ec7-46e5-a80d-d68ad3f696ba,genre-23746133,2019-02-27,7621715.11,75,2001-02-23T00:00:00.000Z,createdBy.e4ymt@example.net,2010-11-21T00:00:00.000Z,modifiedBy.e4ymt@example.net
