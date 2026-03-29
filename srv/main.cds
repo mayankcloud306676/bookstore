@@ -6,4 +6,5 @@ service Z {
         *
     };
     entity Chapters as projection on myapp.Chapters;
+    entity BookStatus as projection on myapp.BookStatus;
 }

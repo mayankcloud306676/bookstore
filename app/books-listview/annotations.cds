@@ -23,6 +23,13 @@ annotate service.Books with @(
                 Label : 'pages',
                 Value : pages,
             },
+            {
+                $Type : 'UI.DataField',
+                Value : status_code,
+                Label : 'Availibility',
+                Criticality : status.criticality,
+                CriticalityRepresentation : #WithIcon,
+            },
         ],
     },
     UI.Facets : [
@@ -60,6 +67,7 @@ annotate service.Books with @(
             $Type : 'UI.DataField',
             Label : 'publishedAt',
             Value : publishedAt,
+            @UI.Importance : #Low,
         },
         {
             $Type : 'UI.DataField',
@@ -76,9 +84,24 @@ annotate service.Books with @(
             Value : author.name,
             Label : 'name',
         },
+        {
+            $Type : 'UI.DataField',
+            Value : stock,
+            Label : 'stock',
+            @UI.Importance : #High,
+        },
+        {
+            $Type : 'UI.DataField',
+            Value : status_code,
+            Label : 'status_code',
+            Criticality : status.criticality,
+            CriticalityRepresentation : #WithIcon,
+            @UI.Importance : #High,
+        },
     ],
     UI.SelectionFields : [
         title,
+        status_code,
     ],
     UI.HeaderInfo : {
         TypeName : 'Book',
@@ -152,4 +175,42 @@ annotate service.Chapters with @(
         },
     ]
 );
+
+annotate service.Books with {
+    status @(
+        Common.Text : status.displayText,
+        Common.Label : 'status_code',
+        Common.ValueList : {
+            $Type : 'Common.ValueListType',
+            CollectionPath : 'BookStatus',
+            Parameters : [
+                {
+                    $Type : 'Common.ValueListParameterInOut',
+                    LocalDataProperty : status_code,
+                    ValueListProperty : 'code',
+                },
+            ],
+            Label : 'Availibility',
+            PresentationVariantQualifier : 'vh_Books_status',
+        },
+        Common.ValueListWithFixedValues : true,
+    )
+};
+
+annotate service.BookStatus with @(
+    UI.PresentationVariant #vh_Books_status : {
+        $Type : 'UI.PresentationVariantType',
+        SortOrder : [
+            {
+                $Type : 'Common.SortOrderType',
+                Property : code,
+                Descending : false,
+            },
+        ],
+    }
+);
+
+annotate service.BookStatus with {
+    code @Common.Text : displayText
+};
 

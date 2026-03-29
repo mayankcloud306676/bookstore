@@ -5,6 +5,19 @@ using {
     managed
 } from '@sap/cds/common';
 
+
+
+entity BookStatus {
+    key code : String(1) enum 
+{
+  Available = 'A';
+  Low_Stock = 'L';
+  Unavailable = 'U';
+};
+ criticality : Integer;
+ displayText : String;
+}
+
 entity Books : cuid, managed {
     title       : String;
     author      : Association to Authors;
@@ -12,6 +25,8 @@ entity Books : cuid, managed {
     publishedAt : Date;
     price       : Decimal(9, 2);
     pages       : Integer;
+    stock       : Integer;
+    status      : Association to BookStatus;
     Chapters    : Composition of many Chapters
                       on Chapters.book = $self;
 }
