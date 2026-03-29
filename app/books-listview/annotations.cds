@@ -5,11 +5,6 @@ annotate service.Books with @(
         Data : [
             {
                 $Type : 'UI.DataField',
-                Label : 'title',
-                Value : title,
-            },
-            {
-                $Type : 'UI.DataField',
                 Label : 'genre',
                 Value : genre,
             },
@@ -36,6 +31,18 @@ annotate service.Books with @(
             ID : 'GeneratedFacet1',
             Label : 'General Information',
             Target : '@UI.FieldGroup#GeneratedGroup',
+        },
+        {
+            $Type : 'UI.ReferenceFacet',
+            Label : 'Entry Section',
+            ID : 'EntrySection',
+            Target : '@UI.FieldGroup#EntrySection',
+        },
+        {
+            $Type : 'UI.ReferenceFacet',
+            Label : 'Chapters',
+            ID : 'Chapters',
+            Target : 'Chapters/@UI.LineItem#Chapters',
         },
     ],
     UI.LineItem : [
@@ -73,6 +80,35 @@ annotate service.Books with @(
     UI.SelectionFields : [
         title,
     ],
+    UI.HeaderInfo : {
+        TypeName : 'Book',
+        TypeNamePlural : 'Books',
+        Title : {
+            $Type : 'UI.DataField',
+            Value : title,
+        },
+    },
+    UI.FieldGroup #EntrySection : {
+        $Type : 'UI.FieldGroupType',
+        Data : [
+            {
+                $Type : 'UI.DataField',
+                Value : createdAt,
+            },
+            {
+                $Type : 'UI.DataField',
+                Value : createdBy,
+            },
+            {
+                $Type : 'UI.DataField',
+                Value : modifiedAt,
+            },
+            {
+                $Type : 'UI.DataField',
+                Value : modifiedBy,
+            },
+        ],
+    },
 );
 
 annotate service.Books with {
@@ -96,4 +132,24 @@ annotate service.Books with {
 annotate service.Books with {
     title @Common.Label : 'Filter for Title'
 };
+
+annotate service.Chapters with @(
+    UI.LineItem #Chapters : [
+        {
+            $Type : 'UI.DataField',
+            Value : book.Chapters.number,
+            Label : 'number',
+        },
+        {
+            $Type : 'UI.DataField',
+            Value : book.Chapters.pages,
+            Label : 'pages',
+        },
+        {
+            $Type : 'UI.DataField',
+            Value : book.Chapters.title,
+            Label : 'title',
+        },
+    ]
+);
 
