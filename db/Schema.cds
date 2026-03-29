@@ -2,7 +2,8 @@ namespace myapp;
 
 using {
     cuid,
-    managed
+    managed,
+    Currency
 } from '@sap/cds/common';
 
 
@@ -24,6 +25,7 @@ entity Books : cuid, managed {
     genre       : String;
     publishedAt : Date;
     price       : Decimal(9, 2);
+    currency    : Currency;
     pages       : Integer;
     stock       : Integer;
     status      : Association to BookStatus;

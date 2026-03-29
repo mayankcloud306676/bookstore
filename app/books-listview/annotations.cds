@@ -34,6 +34,10 @@ annotate service.Books with @(
                 $Type : 'UI.DataField',
                 Value : title,
             },
+            {
+                $Type : 'UI.DataField',
+                Value : currency_code,
+            },
         ],
     },
     UI.Facets : [
@@ -231,5 +235,9 @@ annotate service.BookStatus with @(
 
 annotate service.BookStatus with {
     code @Common.Text : displayText
+};
+
+annotate service.Books with {
+    currency @Common.ValueListWithFixedValues : true
 };
 
