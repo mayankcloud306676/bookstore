@@ -30,6 +30,10 @@ annotate service.Books with @(
                 Criticality : status.criticality,
                 CriticalityRepresentation : #WithIcon,
             },
+            {
+                $Type : 'UI.DataField',
+                Value : title,
+            },
         ],
     },
     UI.Facets : [
@@ -100,16 +104,11 @@ annotate service.Books with @(
         },
     ],
     UI.SelectionFields : [
-        title,
         status_code,
     ],
     UI.HeaderInfo : {
         TypeName : 'Book',
         TypeNamePlural : 'Books',
-        Title : {
-            $Type : 'UI.DataField',
-            Value : title,
-        },
     },
     UI.FieldGroup #EntrySection : {
         $Type : 'UI.FieldGroupType',
@@ -129,6 +128,23 @@ annotate service.Books with @(
             {
                 $Type : 'UI.DataField',
                 Value : modifiedBy,
+            },
+        ],
+    },
+    UI.HeaderFacets : [
+        {
+            $Type : 'UI.ReferenceFacet',
+            Label : 'Header',
+            ID : 'Header',
+            Target : '@UI.FieldGroup#Header',
+        },
+    ],
+    UI.FieldGroup #Header : {
+        $Type : 'UI.FieldGroupType',
+        Data : [
+            {
+                $Type : 'UI.DataField',
+                Value : title,
             },
         ],
     },
@@ -153,7 +169,10 @@ annotate service.Books with {
 };
 
 annotate service.Books with {
-    title @Common.Label : 'Filter for Title'
+    title @(
+        Common.Label : 'Filter for Title',
+        UI.MultiLineText : true,
+    )
 };
 
 annotate service.Chapters with @(

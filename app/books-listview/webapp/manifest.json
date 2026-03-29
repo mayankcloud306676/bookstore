@@ -127,8 +127,13 @@
           "name": "sap.fe.templates.ObjectPage",
           "options": {
             "settings": {
+              "contextPath": "/Books",
               "editableHeaderContent": false,
-              "contextPath": "/Books"
+              "content": {
+                "header": {
+                  "visible": true
+                }
+              }
             }
           }
         }
