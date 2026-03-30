@@ -5,11 +5,6 @@ annotate service.Books with @(
         Data : [
             {
                 $Type : 'UI.DataField',
-                Label : 'genre',
-                Value : genre,
-            },
-            {
-                $Type : 'UI.DataField',
                 Label : 'publishedAt',
                 Value : publishedAt,
             },
@@ -37,6 +32,11 @@ annotate service.Books with @(
             {
                 $Type : 'UI.DataField',
                 Value : currency_code,
+            },
+            {
+                $Type : 'UI.DataField',
+                Value : genre_code,
+                Label : 'Genre',
             },
         ],
     },
@@ -68,8 +68,8 @@ annotate service.Books with @(
         },
         {
             $Type : 'UI.DataField',
-            Label : 'genre',
-            Value : genre,
+            Value : genre_code,
+            Label : 'Genre',
         },
         {
             $Type : 'UI.DataField',
@@ -105,6 +105,16 @@ annotate service.Books with @(
             Criticality : status.criticality,
             CriticalityRepresentation : #WithIcon,
             @UI.Importance : #High,
+        },
+        {
+            $Type : 'UI.DataFieldForAction',
+            Action : 'Z.addStock',
+            Label : 'addStock',
+        },
+        {
+            $Type : 'UI.DataFieldForAction',
+            Action : 'Z.EntityContainer/addDiscount',
+            Label : 'addDiscount',
         },
     ],
     UI.SelectionFields : [
@@ -152,6 +162,23 @@ annotate service.Books with @(
             },
         ],
     },
+    UI.Identification : [
+        {
+            $Type : 'UI.DataFieldForAction',
+            Action : 'Z.addStock',
+            Label : 'addStock',
+        },
+        {
+            $Type : 'UI.DataFieldForAction',
+            Action : 'Z.changeDate',
+            Label : 'changeDate',
+        },
+        {
+            $Type : 'UI.DataFieldForAction',
+            Action : 'Z.changeStatus',
+            Label : 'changeStatus',
+        },
+    ],
 );
 
 annotate service.Books with {
@@ -240,4 +267,21 @@ annotate service.BookStatus with {
 annotate service.Books with {
     currency @Common.ValueListWithFixedValues : true
 };
+
+annotate service.Books with {
+    genre @(
+        Common.ValueList : {
+            $Type : 'Common.ValueListType',
+            CollectionPath : 'Genres',
+            Parameters : [
+                {
+                    $Type : 'Common.ValueListParameterInOut',
+                    LocalDataProperty : genre_code,
+                    ValueListProperty : 'code',
+                },
+            ],
+            Label : 'Genres',
+        },
+        Common.ValueListWithFixedValues : true,
+        )};
 

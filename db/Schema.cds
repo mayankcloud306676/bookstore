@@ -6,6 +6,8 @@ using {
     Currency
 } from '@sap/cds/common';
 
+using { Attachments } from '@cap-js/attachments';
+
 
 
 entity BookStatus {
@@ -19,10 +21,32 @@ entity BookStatus {
  displayText : String;
 }
 
+type Genre : String enum 
+{
+    Fiction = 'Fiction';
+    Science = 'Science';
+    Horror  = 'Horror';
+    Religion = 'Religon';
+
+};
+
+entity Genres  {
+
+    key code : Genre;
+        descr : String;
+
+}
+
+entity Random
+{
+    key ID : Integer;
+        name : String;
+}
+
 entity Books : cuid, managed {
     title       : String;
     author      : Association to Authors;
-    genre       : String;
+    genre       : Association to Genres;
     publishedAt : Date;
     price       : Decimal(9, 2);
     currency    : Currency;
@@ -35,6 +59,7 @@ entity Books : cuid, managed {
 
 entity Authors : cuid, managed {
     name  : String;
+    attachments : Composition of  many Attachments;
     books : Association to many Books
                 on books.author = $self;
 }

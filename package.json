@@ -2,23 +2,30 @@
   "name": "bookstore",
   "version": "1.0.0",
   "dependencies": {
+    "@cap-js/attachments": "^3.9.0",
     "@sap/cds": "^9",
     "@sap/cds-common-content": "^3.1.0"
   },
   "devDependencies": {
+    "@cap-js/cds-typer": ">=0.1",
     "@cap-js/sqlite": "^2",
     "@sap/ux-ui5-tooling": "^1.22.0",
     "cds-plugin-ui5": "^0.13.0"
   },
   "scripts": {
     "start": "cds-serve",
-    "watch-books-listview": "cds watch --open bookslistview/index.html?sap-ui-xx-viewCache=false --livereload false"
+    "watch-books-listview": "cds watch --open bookslistview/index.html?sap-ui-xx-viewCache=false --livereload false",
+    "watch-authors-listview": "cds watch --open authorslistview/index.html?sap-ui-xx-viewCache=false --livereload false"
   },
   "private": true,
   "workspaces": [
     "app/*"
   ],
   "sapux": [
-    "app/books-listview"
-  ]
+    "app/books-listview",
+    "app/authors-listview"
+  ],
+  "imports": {
+    "#cds-models/*": "./@cds-models/*/index.js"
+  }
 }
